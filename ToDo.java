@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Date;
 class ToDo {
   public static void main(String[] args){
 
@@ -6,6 +7,13 @@ class ToDo {
 }
 
 class TDList{
+  int index;
+  Date start_date;
+  String Description;
+  String item;
+
+  TDList(){
+  }
 }
 
 class Options{
