@@ -78,9 +78,7 @@ class TDList{
   int index;
   Date start_date;
   String Description;
-
-  // TODO: rename item to task
-  String item;
+  String task;
 
   TDList(){
   }
