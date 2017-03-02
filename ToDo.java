@@ -8,7 +8,8 @@ class ToDo {
   public static void main(String[] args){
 
     Menu menu = new Menu();
-    menu.showMenu();
+    TDList list = new TDList();
+    menu.showMenu(list);
   }
 }
 
@@ -31,14 +32,14 @@ class Menu{
     }
   }
 
-  public void showMenu(){
+  public void showMenu(TDList list){
     boolean exit = false;
     while(exit != true ){
       System.out.println("What would you like to do?");
       System.out.println("--------------------------");
       getMenu();
       int choice = getChoice();
-      exit = runChoice(choice);
+      exit = runChoice(choice, list);
       System.out.println("--------------------------");
     }
   }
@@ -48,10 +49,11 @@ class Menu{
     return kb.nextInt();
   }
 
-  private boolean runChoice(int choice){
+  private boolean runChoice(int choice, TDList list){
     boolean exit = false;
     switch(choice){
       case 1: 
+        list.add();
         break;
       case 2:
         break;
@@ -60,6 +62,7 @@ class Menu{
       case 4:
         break;
       case 5:
+        System.out.println(list.show());
         break;
       case 6:
         exit = true;
@@ -75,12 +78,22 @@ class Menu{
 }
 
 class TDList{
-  int index;
-  Date start_date;
-  String Description;
-  String task;
+  private int index;
+  private Date start_date;
+  private String Description;
+  private String task;
+  private Scanner kb;
 
   TDList(){
+    this.kb = new Scanner(System.in); 
+  }
+
+  public void add(){
+    this.task = kb.nextLine();
+  }
+
+  public String show(){
+    return task;
   }
 }
 
