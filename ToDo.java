@@ -62,7 +62,7 @@ class Menu{
       case 4:
         break;
       case 5:
-        System.out.println(list.show());
+        list.show();
         break;
       case 6:
         exit = true;
@@ -80,20 +80,47 @@ class Menu{
 class TDList{
   private int index;
   private Date start_date;
-  private String Description;
+  private String description;
   private String task;
   private Scanner kb;
 
   TDList(){
     this.kb = new Scanner(System.in); 
+    this.index = 0;
   }
 
   public void add(){
+    System.out.print("Enter Task name: ");
     this.task = kb.nextLine();
+    this.start_date = new Date();
+    System.out.print("Enter Task Description: ");
+    this.description = kb.nextLine();
+    index++;
   }
 
-  public String show(){
+  public void show(){
+    System.out.println("Index: " + this.getIndex() + "\n"
+                        + "Task: " + this.getTask() + "\n"
+                        + "Description: " + this.getDescription() + "\n" 
+                        + "Start Date: " + this.getStartDate()
+                       );
+
+  }
+
+  public String getTask(){
     return task;
+  }
+
+  public int getIndex(){
+    return index;
+  }
+
+  public String getDescription(){
+    return description;
+  }
+
+  public Date getStartDate(){
+    return start_date;
   }
 }
 
