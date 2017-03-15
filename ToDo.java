@@ -7,6 +7,8 @@ import java.util.ArrayList;
 class ToDo {
   public static void main(String[] args){
 
+    System.out.println("test");
+
     Menu menu = new Menu();
     TDList list = new TDList();
     menu.showMenu(list);
